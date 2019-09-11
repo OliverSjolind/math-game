@@ -5,6 +5,10 @@
           box-sizing: border-box;
 }
 
+.hidden {
+  display: none;
+}
+
 .container {
   height: 100vh;
   width: 100%;
@@ -35,11 +39,16 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 30px 0;
+  margin: 20px 0;
   width: 300px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+}
+
+.container .playAgain {
+  padding: 10px 0;
+  width: 100px;
 }
 
 .container .answers button {
