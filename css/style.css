@@ -3,6 +3,9 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  color: #ffffff;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 1.09em;
 }
 
 .hidden {
@@ -25,10 +28,13 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#48c6ef), to(#6f86d6));
+  background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
 }
 
 .container .top-row {
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #ffffff;
+  font-size: 0.85em;
 }
 
 .container .row {
@@ -46,14 +52,26 @@
           justify-content: space-evenly;
 }
 
+.container button:hover {
+  background-color: #3f87b1 !important;
+}
+
+.container button:active {
+  background-color: #234b63 !important;
+}
+
 .container .playAgain {
   padding: 10px 0;
   width: 100px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid #ffffff;
 }
 
 .container .answers button {
-  width: 75px;
+  background-color: rgba(0, 0, 0, 0);
+  width: 2em;
   height: 50px;
   margin: 3px;
+  border: 2px solid #ffffff;
 }
 /*# sourceMappingURL=style.css.map */

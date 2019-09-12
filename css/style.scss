@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #ffffff;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 1.09em;
 }
 
 
@@ -16,9 +19,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
 
     .top-row {
-        border-bottom: 1px solid black;
+        border-bottom: 2px solid #ffffff;
+        font-size: 0.85em;
     }
 
     .row {
@@ -27,19 +32,30 @@
         margin: 20px 0;
         width: 300px;
         justify-content: space-evenly;
+    }
 
+    button:hover {
+        background-color: rgb(63, 135, 177) !important;
+    }
+
+    button:active {
+        background-color: rgb(35, 75, 99) !important;
     }
 
     .playAgain {
         padding: 10px 0;
         width: 100px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #ffffff;
     }
 
     .answers {
         button {
-            width: 75px;
+            background-color: rgba(0, 0, 0, 0);
+            width: 2em;
             height: 50px;
             margin: 3px;
+            border: 2px solid #ffffff;
         }
     }
 

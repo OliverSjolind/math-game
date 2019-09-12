@@ -35,10 +35,13 @@ function addition(number1, number2) {
 let answer = addition(number1, number2);
 console.log(answer);
 
-answer1.innerHTML = Math.floor(Math.random() * 100);
-answer2.innerHTML = Math.floor(Math.random() * 100);
-answer3.innerHTML = Math.floor(Math.random() * 100);
-answer4.innerHTML = Math.floor(Math.random() * 100);
+let min = answer - 10;
+let max = answer + 10;
+
+answer1.innerHTML = Math.floor(Math.random() * (max - min) + min);
+answer2.innerHTML = Math.floor(Math.random() * (max - min) + min);
+answer3.innerHTML = Math.floor(Math.random() * (max - min) + min);
+answer4.innerHTML = Math.floor(Math.random() * (max - min) + min);
 
 answers[Math.floor(Math.random() * 4)].innerHTML = answer
 
@@ -48,15 +51,18 @@ answer3.addEventListener('click', guessFunction);
 answer4.addEventListener('click', guessFunction);
 
 function resetNumbers() {
-    answer1.innerHTML = Math.floor(Math.random() * 100);
-    answer2.innerHTML = Math.floor(Math.random() * 100);
-    answer3.innerHTML = Math.floor(Math.random() * 100);
-    answer4.innerHTML = Math.floor(Math.random() * 100);
-
     number1 = Math.floor(Math.random() * 100);
     number2 = Math.floor(Math.random() * 100);
 
     answer = addition(number1, number2);
+
+    min = answer - 10;
+    max = answer + 10;
+
+    answer1.innerHTML = Math.floor(Math.random() * (max - min) + min);
+    answer2.innerHTML = Math.floor(Math.random() * (max - min) + min);
+    answer3.innerHTML = Math.floor(Math.random() * (max - min) + min);
+    answer4.innerHTML = Math.floor(Math.random() * (max - min) + min);
 
     answers[Math.floor(Math.random() * 4)].innerHTML = answer
 
