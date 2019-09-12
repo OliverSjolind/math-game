@@ -12,6 +12,16 @@
     display: none;
 }
 
+#statusIndicator {
+    width: 60px;
+    height: 40px;
+    border: 1px solid #ffffff;
+}
+
+.rigthAnswer {
+    background-color: green;
+}
+
 .container {
     height: 100vh;
     width: 100%;

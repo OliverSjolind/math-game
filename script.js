@@ -5,7 +5,9 @@ const result = document.getElementById('results')
 const resultTexts = document.getElementById('resultTexts')
 const playAgain = document.getElementById('playAgain')
 const questionDisplay = document.getElementById('question')
-
+const statusIndicator = document.getElementById('statusIndicator')
+let rightCounter = 0;
+let wrongCounter = 0;
 let number1 = Math.floor(Math.random() * 100);
 let number2 = Math.floor(Math.random() * 100);
 
@@ -19,8 +21,7 @@ console.log(answer);
 
 let questionCounter = 1;
 const numberOfQuestions = 10;
-let rightCounter = 0;
-let wrongCounter = 0;
+
 questionDisplay.innerHTML = number1 + ' + ' + number2
 
 let answers = []
@@ -53,7 +54,7 @@ answer2.addEventListener('click', guessFunction);
 answer3.addEventListener('click', guessFunction);
 answer4.addEventListener('click', guessFunction);
 
-//Reset Functions
+//Reset Function
 function resetNumbers() {
     number1 = Math.floor(Math.random() * 100);
     number2 = Math.floor(Math.random() * 100);
@@ -80,14 +81,12 @@ function resetNumbers() {
     questionDisplay.innerHTML = number1 + ' + ' + number2
 
     questionCountDisplay.innerHTML = questionCounter + ' / ' + numberOfQuestions
-
-    console.log(answer);
-
 }
 
 function guessFunction() {
     if (parseInt(this.innerHTML) === answer) {
         rightCounter += 1
+        statusIndicator.className = 'rigthAnswer';
         console.log('Right: ' + rightCounter)
         questionCounter += 1;
         resetNumbers();
@@ -108,6 +107,8 @@ function guessFunction() {
     }
 }
 
+
+
 playAgain.addEventListener('click', playAgainFunction)
 
 function playAgainFunction() {
@@ -115,6 +116,20 @@ function playAgainFunction() {
     playAgain.className = 'hidden';
     mathGame.style.display = 'block';
     rightCounter = 0;
+    wrongCounter = 0;
     questionCounter = 1;
     resetNumbers();
 }
+
+//Pie chart
+// var ctx = document.getElementById('pieChart').getContext('2d');
+// var myPieChart = new Chart(ctx, {
+//     type: 'pie',
+//     data: {
+//         labels: ['Wrong', 'Right'],
+//         datasets: [{
+//             backgroundColor: ['#ff0000', '#00ff00'],
+//             data: [wrongCounter, rightCounter]
+//         }]
+//     }
+// });
