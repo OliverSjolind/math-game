@@ -6,6 +6,8 @@ const resultTexts = document.getElementById('resultTexts')
 const playAgain = document.getElementById('playAgain')
 const questionDisplay = document.getElementById('question')
 const statusIndicator = document.getElementById('statusIndicator')
+let pieChart = document.getElementById('pieChart')
+const answersHTML = document.getElementById('answersHTML')
 let rightCounter = 0;
 let wrongCounter = 0;
 let number1 = Math.floor(Math.random() * 100);
@@ -86,10 +88,16 @@ function resetNumbers() {
 function guessFunction() {
     if (parseInt(this.innerHTML) === answer) {
         rightCounter += 1
-        statusIndicator.className = 'rigthAnswer';
+        // statusIndicator.className = 'rigthAnswer';
         console.log('Right: ' + rightCounter)
         questionCounter += 1;
         resetNumbers();
+        statusIndicator.classList.add('rigthAnswer');
+
+        setTimeout(function () {
+            led.classList.remove('animationPulseGreen')
+        }, 500);
+
         console.log(answer);
     } else {
         wrongCounter += 1
@@ -100,36 +108,49 @@ function guessFunction() {
     }
     if (questionCounter > numberOfQuestions) {
         questionCountDisplay.innerHTML = numberOfQuestions + ' / ' + numberOfQuestions;
-        mathGame.style.display = 'none';
-        resultTexts.className = 'row';
-        playAgain.className = 'row playAgain';
+        answersHTML.style.display = 'none';
+        statusIndicator.style.display = 'none';
+        questionDisplay.style.display = 'none';
         result.innerText = `You got ${rightCounter} out of ${numberOfQuestions}!`
+        resultTexts.style.display = 'block';
+        playAgain.style.display = 'block';
+        pieChart.style.display = 'block';
+
+        //Pie chart
+        var ctx = document.getElementById('pieChart').getContext('2d');
+        myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Wrong', 'Right'],
+                datasets: [{
+                    backgroundColor: ['#ff0000', '#00ff00'],
+                    data: [wrongCounter, rightCounter]
+                }]
+            },
+            options: {
+                responsive: false,
+                maintainAspectRatio: true,
+            }
+        });
+        playAgain.addEventListener('click', destroyChart)
+
+        function destroyChart() {
+            myPieChart.destroy();
+            pieChart.style.display = 'none';
+        }
     }
 }
-
-
 
 playAgain.addEventListener('click', playAgainFunction)
 
 function playAgainFunction() {
-    resultTexts.className = 'hidden';
-    playAgain.className = 'hidden';
-    mathGame.style.display = 'block';
+    resultTexts.style.display = 'none';
+    playAgain.style.display = 'none';
+    answersHTML.style.display = 'flex';
+    statusIndicator.style.display = 'block';
+    questionDisplay.style.display = 'flex';
     rightCounter = 0;
     wrongCounter = 0;
     questionCounter = 1;
     resetNumbers();
 }
-
-//Pie chart
-// var ctx = document.getElementById('pieChart').getContext('2d');
-// var myPieChart = new Chart(ctx, {
-//     type: 'pie',
-//     data: {
-//         labels: ['Wrong', 'Right'],
-//         datasets: [{
-//             backgroundColor: ['#ff0000', '#00ff00'],
-//             data: [wrongCounter, rightCounter]
-//         }]
-//     }
-// });

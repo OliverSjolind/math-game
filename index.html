@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <title>Math Game</title>
 </head>
 
@@ -17,28 +16,24 @@
             <span id="arithmetics">addition</span>
             <span id="questionCounter">1 / 10</span>
         </div>
-        <div id="resultTexts" class="hidden">
-            <div id="results">test</div>
+        <div id="resultTexts" style="display: none">
+            <div id="results"></div>
         </div>
-        <button id="playAgain" class="hidden">Play Again</button>
-        <span id="math-game">
-            <div class="row">
-                <div id="question"></div>
-            </div>
-            <div class="row">
-                <div id="statusIndicator"></div>
+        <button id="playAgain" class="playAgain row" style="display: none">Play Again</button>
 
-            </div>
-            <div class="row answers">
-                <button id="answer1">test</button>
-                <button id="answer2">test</button>
-                <button id="answer3">test</button>
-                <button id="answer4">test</button>
-            </div>
-            <!-- <canvas id="pieChart" width="800" height="450"></canvas> -->
+        <div class="row" id="question"></div>
+
+        <div class="row" id="statusIndicator"></div>
+        <div id="answersHTML" class="row answers">
+            <button id="answer1">test</button>
+            <button id="answer2">test</button>
+            <button id="answer3">test</button>
+            <button id="answer4">test</button>
+        </div>
+        <canvas id="pieChart" width="250" height="250" style="display: none"></canvas>
     </div>
-    </span>
-    <script src="script.js"></script>
+    <script src=" script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 </body>
 
 </html>
