@@ -95,8 +95,9 @@ function guessFunction() {
         statusIndicator.classList.add('rigthAnswer');
 
         setTimeout(function () {
-            led.classList.remove('animationPulseGreen')
+            statusIndicator.classList.remove('rigthAnswer')
         }, 500);
+
 
         console.log(answer);
     } else {
@@ -105,6 +106,11 @@ function guessFunction() {
         questionCounter += 1;
         resetNumbers();
         console.log(answer);
+        statusIndicator.classList.add('wrongAnswer');
+
+        setTimeout(function () {
+            statusIndicator.classList.remove('wrongAnswer')
+        }, 500);
     }
     if (questionCounter > numberOfQuestions) {
         questionCountDisplay.innerHTML = numberOfQuestions + ' / ' + numberOfQuestions;

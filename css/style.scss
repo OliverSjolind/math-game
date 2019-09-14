@@ -7,11 +7,6 @@
     font-size: 1.09em;
 }
 
-element.style {
-    width: 200px !important;
-    height: 200px !important;
-}
-
 #statusIndicator {
     width: 60px;
     height: 40px;
@@ -19,7 +14,41 @@ element.style {
 }
 
 .rigthAnswer {
-    background-color: green;
+    animation-name: rigthAnswer;
+    animation-duration: 0.5s;
+}
+
+@keyframes rigthAnswer {
+    0% {
+        background: none;
+    }
+
+    50% {
+        background-color: green;
+    }
+
+    100% {
+        background: none;
+    }
+}
+
+.wrongAnswer {
+    animation-name: wrongAnswer;
+    animation-duration: 0.5s;
+}
+
+@keyframes wrongAnswer {
+    0% {
+        background: none;
+    }
+
+    50% {
+        background-color: red;
+    }
+
+    100% {
+        background: none;
+    }
 }
 
 .container {

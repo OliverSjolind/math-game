@@ -8,11 +8,6 @@
   font-size: 1.09em;
 }
 
-element.style {
-  width: 200px !important;
-  height: 200px !important;
-}
-
 #statusIndicator {
   width: 60px;
   height: 40px;
@@ -20,7 +15,65 @@ element.style {
 }
 
 .rigthAnswer {
-  background-color: green;
+  -webkit-animation-name: rigthAnswer;
+          animation-name: rigthAnswer;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+}
+
+@-webkit-keyframes rigthAnswer {
+  0% {
+    background: none;
+  }
+  50% {
+    background-color: green;
+  }
+  100% {
+    background: none;
+  }
+}
+
+@keyframes rigthAnswer {
+  0% {
+    background: none;
+  }
+  50% {
+    background-color: green;
+  }
+  100% {
+    background: none;
+  }
+}
+
+.wrongAnswer {
+  -webkit-animation-name: wrongAnswer;
+          animation-name: wrongAnswer;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+}
+
+@-webkit-keyframes wrongAnswer {
+  0% {
+    background: none;
+  }
+  50% {
+    background-color: red;
+  }
+  100% {
+    background: none;
+  }
+}
+
+@keyframes wrongAnswer {
+  0% {
+    background: none;
+  }
+  50% {
+    background-color: red;
+  }
+  100% {
+    background: none;
+  }
 }
 
 .container {
