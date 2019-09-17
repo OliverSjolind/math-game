@@ -5,7 +5,7 @@
           box-sizing: border-box;
   color: #ffffff;
   font-family: 'Saira Extra Condensed', sans-serif;
-  font-size: 1.09em;
+  font-size: 1.1em;
 }
 
 #statusIndicator {
@@ -109,11 +109,15 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 20px 0;
+  margin: 10px 0;
   width: 300px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+}
+
+.container .results {
+  font-size: 0.85em;
 }
 
 .container button:hover {

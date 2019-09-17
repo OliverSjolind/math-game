@@ -3,6 +3,7 @@ const questionCountDisplay = document.getElementById('questionCounter');
 const mathGame = document.getElementById('math-game')
 const result = document.getElementById('results')
 const resultTexts = document.getElementById('resultTexts')
+const customResultText = document.getElementById('customResultText')
 const playAgain = document.getElementById('playAgain')
 const questionDisplay = document.getElementById('question')
 const statusIndicator = document.getElementById('statusIndicator')
@@ -13,6 +14,13 @@ let wrongCounter = 0;
 let number1 = Math.floor(Math.random() * 100);
 let number2 = Math.floor(Math.random() * 100);
 
+//Result-text arrays
+const under25result = ['You got under 25%']
+const under50result = ['You got under 50%']
+const over50result = ['You got over 50%']
+const over75result = ['You got over 75%']
+
+//
 function addition(number1, number2) {
     return number1 + number2
 }
@@ -22,7 +30,10 @@ let answer = addition(number1, number2);
 console.log(answer);
 
 let questionCounter = 1;
+//Number of questions
 const numberOfQuestions = 10;
+
+let percentRight;
 
 questionDisplay.innerHTML = number1 + ' + ' + number2
 
@@ -121,6 +132,20 @@ function guessFunction() {
         resultTexts.style.display = 'block';
         playAgain.style.display = 'block';
         pieChart.style.display = 'block';
+        percentRight = rightCounter / numberOfQuestions;
+        if (percentRight < 0.25) {
+            customResultText.innerHTML = under25result[0];
+        } else if (percentRight < 0.50) {
+            customResultText.innerHTML = under50result[0];
+        } else if (percentRight < 0.75) {
+            customResultText.innerHTML = over50result[0];
+        } else {
+            customResultText.innerHTML = over75result[0];
+        }
+
+
+        console.log(percentRight);
+
 
         //Pie chart
         var ctx = document.getElementById('pieChart').getContext('2d');
@@ -129,7 +154,11 @@ function guessFunction() {
             data: {
                 labels: ['Wrong', 'Right'],
                 datasets: [{
-                    backgroundColor: ['#ff0000', '#00ff00'],
+                    backgroundColor: ['rgba(255, 0, 0, 0.4)', 'rgba(0, 255, 0, 0.4)'],
+                    borderColor: ['#ff0000', '#00ff00'],
+                    borderWidth: 2,
+                    hoverBorderWidth: 5,
+                    borderAlign: 'inner',
                     data: [wrongCounter, rightCounter]
                 }]
             },
